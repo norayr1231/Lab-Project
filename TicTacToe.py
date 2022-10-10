@@ -140,7 +140,7 @@ class UI(QMainWindow):
             self.button7.text() != '' and self.button8.text() != '' and
             self.button9.text() != ''):
 
-            self.label.setText("Draw")
+            self.label.setText("Draw!")
 
 
     def reset(self):
