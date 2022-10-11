@@ -3,19 +3,18 @@ from PyQt5.QtWidgets import *
 from PyQt5 import uic
 import sys
 
-# 2.14, 
-
+#main class with methods needed
 class UI(QMainWindow):
-
+    #init method which loads UI and gets all buttons
     def __init__(self):
         super(UI, self).__init__()
 
         uic.loadUi("TTTUI.ui", self)
 
-        self.setWindowTitle("Tic-Tac-Toe")
-        self.setStyleSheet("background-color: white;")
+        #counter for deciding whose turn is
         self.counter=0
 
+        #all UI objects
         self.button1=self.findChild(QPushButton, "pushButton_1")
         self.button2=self.findChild(QPushButton, "pushButton_2")
         self.button3=self.findChild(QPushButton, "pushButton_3")
@@ -27,11 +26,9 @@ class UI(QMainWindow):
         self.button9=self.findChild(QPushButton, "pushButton_9")
         self.start=self.findChild(QPushButton, "start")
         self.label=self.findChild(QLabel, "label")
-        self.label.setText("X starts")
-        self.label.setStyleSheet('QLabel {color: black;}')
-        self.start.setStyleSheet('QPushButton {color: black;}')
 
-        # Click The Button
+
+        #all button clicks
         self.button1.clicked.connect(lambda: self.action(self.button1))
         self.button2.clicked.connect(lambda: self.action(self.button2))
         self.button3.clicked.connect(lambda: self.action(self.button3))
@@ -43,6 +40,7 @@ class UI(QMainWindow):
         self.button9.clicked.connect(lambda: self.action(self.button9))
         self.start.clicked.connect(lambda: self.reset())
         
+
         self.button_list=[
                         self.button1,
                         self.button2,
@@ -55,16 +53,19 @@ class UI(QMainWindow):
                         self.button9,
                     ]
 
-
+        #code for UI style
+        self.setWindowTitle("Tic-Tac-Toe")
+        self.setStyleSheet("background-color: white;")
+        self.label.setText("X starts")
+        self.label.setStyleSheet('QLabel {color: black;}')
+        self.start.setStyleSheet('QPushButton {color: black;}')
         for b in self.button_list:
             b.setStyleSheet('QPushButton {border: none;}')
         
 
-
-
         self.show()
 
-    
+    #button triggers this method
     def action(self, btn):
         btn.setFont(QFont('Quicksliver', 36))
         if self.counter%2 == 0:
@@ -80,11 +81,13 @@ class UI(QMainWindow):
         self.counter += 1
         btn.setEnabled(False)
         self.win()
-
+    
+    #disables all buttons after game ends
     def disableAll(self):
         for b in self.button_list:
             b.setEnabled(False)
-
+    
+    #checks if game is ending at each step
     def win(self):
         if (self.button1.text() != '' and self.button1.text() == 
             self.button4.text() == self.button7.text()):
@@ -142,7 +145,7 @@ class UI(QMainWindow):
 
             self.label.setText("Draw!")
 
-
+    #clears the field for starting new game
     def reset(self):
         for b in self.button_list:
             b.setText('')
@@ -152,7 +155,7 @@ class UI(QMainWindow):
             self.counter = 0
 
 
-
+#code for app execution
 app = QApplication(sys.argv)
 window = UI()
 
