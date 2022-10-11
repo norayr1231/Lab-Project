@@ -318,12 +318,25 @@
      <rect>
       <x>160</x>
       <y>450</y>
-      <width>67</width>
+      <width>201</width>
       <height>17</height>
      </rect>
     </property>
     <property name="text">
      <string>X's Turn</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>450</y>
+      <width>92</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PvE</string>
     </property>
    </widget>
   </widget>
