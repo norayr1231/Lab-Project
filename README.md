@@ -24,7 +24,8 @@ About program:
   Program has one class [UI] which has these methods (check comments in .py file to see what they do):
                 1.__init__
                 2.action
-                3.disableAll
-                4.win
-                5.reset
-  Program starts by creating game field with 9 boxes and Reset button, python gets all buttons from UI and after each step played, it swithches between X and O and checks if there is a winner or it is a draw. Before game ends prompt under Reset button shows whos turn it is. When game ends prompt under Reset button shows the result and all buttons are disabled. Reset button can be used at any time to reset the game. After placing X or O that buutton is disabled untill Reset is clicked.
+                3.ai
+                4.disableAll
+                5.win
+                6.reset
+  Program starts by creating game field with 9 boxes and Reset button, python gets all buttons from UI and after each step played, it swithches between X and O and checks if there is a winner or it is a draw. Before game ends prompt under Reset button shows whos turn it is. When game ends prompt under Reset button shows the result and all buttons are disabled. Reset button can be used at any time to reset the game. After placing X or O that buutton is disabled untill Reset is clicked. After checking PvE box you play with X against your device.
